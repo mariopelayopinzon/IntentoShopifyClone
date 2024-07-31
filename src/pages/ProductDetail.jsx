@@ -10,7 +10,7 @@ const ProductDetail = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await axios.get(`https://ecommerce-json-jwt.onrender.com/products/${id}`);
+        const response = await axios.get(`https://ecommerce-json-jwt.onrender.com`);
         setProduct(response.data);
       } catch (error) {
         console.error('Error fetching product details:', error);

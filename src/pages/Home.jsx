@@ -1,15 +1,15 @@
 // src/pages/Home.jsx
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
-  const [products, setProducts] = useState([]);
+  const [product, setProducts] = useState([]);
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get('https://ecommerce-json-jwt.onrender.com/products');
+        const response = await axios.get('https://ecommerce-json-jwt.onrender.com');
         setProducts(response.data);
       } catch (error) {
         console.error('Error fetching products:', error);
@@ -23,7 +23,7 @@ const Home = () => {
     <div>
       <h2>Lista de Productos</h2>
       <ul>
-        {products.map((product) => (
+        {product.map((product) => (
           <li key={product.id}>
             <Link to={`/product/${product.id}`}>{product.name}</Link>
             <p>{product.description}</p>
